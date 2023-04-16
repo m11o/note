@@ -1,16 +1,9 @@
-/*
-1. file存在確認
-2. fileがなければ、作成
-3. fileをvimで開く
-4. 閉じた後、commitする
-5. どっかでpushする
- */
 mod git;
 
 use std::fs::OpenOptions;
 use std::io::Write;
 use std::path::Path;
-use std::process::{Command, ExitStatus, Output};
+use std::process::{Command, ExitStatus};
 use chrono::{Local, NaiveDate};
 
 use crate::git::Git;
