@@ -259,7 +259,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "todo_name"
+name = "todo_note"
 version = "0.1.0"
 dependencies = [
  "chrono",
