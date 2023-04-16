@@ -10,15 +10,21 @@ use std::io::Write;
 use std::path::Path;
 use std::process::{Command, Output};
 
-use chrono::Local;
+use chrono::{Local, NaiveDate};
 
 fn main() {
     let now = Local::now().date_naive();
-    let mut file_name = "./notes/".to_string();
-    file_name.push_str(&now.to_string());
-    file_name.push_str(".md");
+    let file_name = buuld_file_name(&now);
 
     open_or_create_file_with_vim(&file_name);
+}
+
+fn buuld_file_name<'a>(date: &'a NaiveDate) -> String {
+    let mut file_name = "./notes/".to_string();
+    file_name.push_str(&date.to_string());
+    file_name.push_str(".md");
+
+    file_name
 }
 
 fn open_or_create_file_with_vim(file_name: &str) {
