@@ -1,10 +1,12 @@
 mod git;
+mod notion;
 
 use std::fs::OpenOptions;
 use std::io::Write;
 use std::path::Path;
 use std::process::{Command, ExitStatus};
 use chrono::{Local, NaiveDate};
+use crate::notion::api_client::ApiClient;
 
 use crate::git::Git;
 
