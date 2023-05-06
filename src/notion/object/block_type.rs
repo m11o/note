@@ -40,11 +40,11 @@ pub enum BlockType {
 
 pub struct Bookmark {
     url: String,
-    caption: vec![RichText]
+    caption: Vec<RichText>
 }
 
 impl Bookmark {
-    pub fn new(url: String, caption: vec![RichText]) -> Self {
+    pub fn new(url: String, caption: Vec<RichText>) -> Self {
         Self {
             url,
             caption
@@ -55,13 +55,13 @@ impl Bookmark {
 pub struct Breadcrumb {}
 
 pub struct BulletedListItem {
-    rich_content: vec![RichText],
+    rich_content: Vec<RichText>,
     color: Color,
-    children: vec![Block]
+    children: Vec<Block>
 }
 
 pub struct Callout {
-    rich_content: vec![RichText],
+    rich_content: Vec<RichText>,
     color: Color,
 }
 
@@ -74,8 +74,8 @@ pub struct ChildPage {
 }
 
 pub struct Code {
-    caption: vec![RichText],
-    rich_content: vec![RichText],
+    caption: Vec<RichText>,
+    rich_content: Vec<RichText>,
     language: CodeLanguage
 }
 
@@ -84,7 +84,7 @@ pub struct Column {}
 pub struct Divider {}
 
 pub struct Embed {
-    url: string
+    url: String
 }
 
 pub struct Equation {
@@ -92,27 +92,27 @@ pub struct Equation {
 }
 
 pub struct Heading {
-    rich_content: vec![RichText],
+    rich_content: Vec<RichText>,
     color: Color,
     isToggleable: bool
 }
 
 pub struct NumberedListItem {
-    rich_content: vec![RichText],
+    rich_content: Vec<RichText>,
     color: Color,
-    children: vec![Block]
+    children: Vec<Block>
 }
 
 pub struct Paragraph {
-    rich_content: vec![RichText],
+    rich_content: Vec<RichText>,
     color: Color,
-    children: vec![Block]
+    children: Vec<Block>
 }
 
 pub struct Quote {
-    rich_content: vec![RichText],
+    rich_content: Vec<RichText>,
     color: Color,
-    children: vec![Block]
+    children: Vec<Block>
 }
 
 pub struct Table {
@@ -122,7 +122,7 @@ pub struct Table {
 }
 
 pub struct TableRow {
-    cells: vec![Block]
+    cells: Vec<Block>
 }
 
 pub struct TableOfContents {
@@ -130,14 +130,14 @@ pub struct TableOfContents {
 }
 
 pub struct ToDo {
-    rich_content: vec![RichText],
+    rich_content: Vec<RichText>,
     color: Color,
-    children: vec![Block],
+    children: Vec<Block>,
     checked: bool
 }
 
 pub struct Toggle {
-    rich_content: vec![RichText],
+    rich_content: Vec<RichText>,
     color: Color,
-    children: vec![Block]
+    children: Vec<Block>
 }

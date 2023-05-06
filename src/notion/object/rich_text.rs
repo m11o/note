@@ -27,9 +27,8 @@ struct Annotations {
     color: Color,
 }
 
-pub struct RichText<T> {
-    rich_text_type: RichTextType,
-    content: T,
+pub struct RichText {
+    content: RichTextType,
     plain_text: String,
     href: Option<String>,
     annotations: Annotations,

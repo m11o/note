@@ -27,21 +27,19 @@ impl Page {
     }
 }
 
-pub struct Block<T> {
+pub struct Block {
     id: String,
-    block_type: BlockType,
     created_time: String,
     last_edited_time: Option<String>,
     archived: bool,
     has_children: bool,
-    object: T
+    object: BlockType
 }
 
-impl<T> Block<T> {
-    pub fn new(id: String, block_type: BlockType, created_time: String, archived: bool, has_children: bool, object: T, last_edited_time: Option<String>) -> Self {
+impl Block {
+    pub fn new(id: String, created_time: String, archived: bool, has_children: bool, object: BlockType, last_edited_time: Option<String>) -> Self {
         Self {
             id,
-            block_type,
             created_time,
             last_edited_time,
             archived,
