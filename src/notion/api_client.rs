@@ -1,38 +1,32 @@
 use std::collections::HashMap;
 use reqwest::{Client, Response};
 
-pub struct ApiClient {
-    token: String,
-    version: String
-}
+use std::env;
 
+pub struct ApiClient {}
+
+const API_VERSION: String = String.from("2022-06-28");
+const API_AUTH_TOKEN: String = env::var("NOTION_AUTH_TOKEN").unwrap();
 const BASE_URL: &str = "https://api.notion.com";
 
 impl ApiClient {
-    pub fn new(token: String, version: String) -> Self {
-        Self {
-            token,
-            version,
-        }
-    }
-
-    pub async fn get(self, path: &str, params: Option<&[(&str, &str)]>) -> Result<Response, Box<dyn std::error::Error>> {
+    pub async fn get(path: &str, params: Option<&[(&str, &str)]>) -> Result<Response, Box<dyn std::error::Error>> {
         let url = reqwest::Url::parse_with_params(&ApiClient::build_request_url(path), params.unwrap_or(&[]))?;
         let client = ApiClient::client();
         let response = client.get(url)
-            .bearer_auth(self.token)
-            .header("Notion-Version", self.version)
+            .bearer_auth(API_AUTH_TOKEN)
+            .header("Notion-Version", API_VERSION)
             .send()
             .await?;
         Ok(response)
     }
 
-    pub async fn post(self, path: &str, body: String) -> Result<Response, Box<dyn std::error::Error>> {
+    pub async fn post(path: &str, body: String) -> Result<Response, Box<dyn std::error::Error>> {
         let url = reqwest::Url::parse(&ApiClient::build_request_url(path))?;
         let client = ApiClient::client();
         let response = client.post(url)
-            .bearer_auth(self.token)
-            .header("Notion-Version", self.version)
+            .bearer_auth(API_AUTH_TOKEN)
+            .header("Notion-Version", API_VERSION)
             .json(&body)
             .send()
             .await?;
